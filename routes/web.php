@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('shoumi/add', 'shoumicontroller@add');
+Route::get('shoumi/add', 'shoumicontroller@add')->middleware('auth');
 
 Auth::routes();
 
