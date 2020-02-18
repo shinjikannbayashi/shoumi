@@ -15,11 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('shoumi/add', 'shoumicontroller@add')->middleware('auth');
+Route::get('shoumi/add', 'shoumicontroller@add');
 
 Auth::routes();
-
-
-
 
 Route::get('/home', 'HomeController@index')->name('home');
