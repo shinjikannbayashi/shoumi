@@ -19,4 +19,7 @@ Route::get('shoumi/add', 'shoumicontroller@add')->middleware('auth');
 
 Auth::routes();
 
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
