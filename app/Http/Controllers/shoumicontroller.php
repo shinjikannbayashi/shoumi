@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+
 class shoumicontroller extends Controller
 {
   public function add()
   {
-    return view('writting');
+    $auths = Auth::user();
+
+    return view('writting',[ 'auths' => $auths ]);
   } //
 }

@@ -10,7 +10,7 @@
        <form action="" method="POST">
          <p>
          <label for="username">ユーザーネーム</label>
-         <input type="text" name="name" id="username" size="100">
+         <input type="text" name="name" id="username" size="100" value={{$auths->name}}>
        </p>
        <p>
          <label for="shouhinname">商品名</label>
