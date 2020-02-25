@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Auth;
 
+use App\shoumi;
+
 class shoumicontroller extends Controller
 {
   public function add()
@@ -14,4 +16,12 @@ class shoumicontroller extends Controller
 
     return view('writting',[ 'auths' => $auths ]);
   } //
+  public function create(Request $request)
+  {
+
+    $this->validate($request, shoumi::$rules);
+
+    return view('index');
+  }
+
 }
