@@ -6,7 +6,7 @@
  <div class="container">
 
    @if (count($errors) > 0)
-            <div class="alert alert-danger">
+            <div class= "alert alert-danger" role="alert">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -14,7 +14,7 @@
                 </ul>
             </div>
         @endif
-        
+
    <div class="row">
      <div class="col-md-8 mx-auto">
        <h1>記入項目欄</h1>
