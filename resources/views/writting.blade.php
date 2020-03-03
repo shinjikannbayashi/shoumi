@@ -44,8 +44,6 @@
          <p>
            <input type="submit" value="送信する">
          </p>
-
-
      </div>
    </div>
  </div>
