@@ -10,9 +10,9 @@ class shoumi extends Model
 
   public static $rules = array(
     'shouhin' => 'required',
-    'year' => 'required|digits:4',
-    'month' => 'required|digits:2',
-    'day' => 'required',
+    'year' => 'bail|required|integer|numeric',
+    'month' => 'bail|required|integer|numeric|between:1,12',
+    'day' => 'bail|required|integer|numeric|between:1,31',
 
   );
     //
