@@ -21,4 +21,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('shoumi/create', 'shoumicontroller@create')->middleware('auth');
+Route::post('shoumi/add', 'shoumicontroller@create')->middleware('auth');
+
+Route::post('shoumi/create','shoumicontroller@get');
+
+Route::get('shoumi/edit','shoumicontroller@edit');
+
+Route::post('shoumi/edit','shoumicontroller@update');
+
+Route::get('shoumi/delete','shoumicontroller@delete');

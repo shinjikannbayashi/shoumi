@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShoumiTable extends Migration
+class CreateShoumisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateShoumiTable extends Migration
      */
     public function up()
     {
-        Schema::create('shoumi', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('shoumis', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('username');
             $table->string('shouhin');
             $table->string('year');
@@ -31,6 +31,6 @@ class CreateShoumiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shoumi');
+        Schema::dropIfExists('shoumis');
     }
 }

@@ -22,7 +22,7 @@
          {{ csrf_field() }}
          <p>
          <label for="username">ユーザーネーム</label>
-         <input type="text" name="name" id="username" size="100" value={{$auths->name}}>
+         <input type="text" name="username" id="username" size="100" value={{ $auths->name }}>
        </p>
        <p>
          <label for="shouhinname">商品名</label>
