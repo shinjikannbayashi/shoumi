@@ -32,10 +32,12 @@ class shoumicontroller extends Controller
 
     $input = shoumi::all();
 
-    return view('index', ['input'=> $input,]);
+    $date = \date('Y-n-j',strtotime('1 week'));
+
+    return view('index', ['input'=> $input ,'date' => $date]);
   }
 
-  public function get(Request $request)
+  public function index(Request $request)
   {
     $cond_shouhin = $request->cond_shouhin;
     if ($cond_shouhin != '') {
@@ -55,27 +57,28 @@ class shoumicontroller extends Controller
   return view('edit',['shoumi_form' => $shoumi]);
 }
 
-public function update(Request $request)
-{
-  $this->validate($request, shoumi::$rules);
+ public function update(Request $request)
+ {
+   $this->validate($request, shoumi::$rules);
 
-  $shoumi = shoumi::find($request->id);
+   $shoumi = shoumi::find($request->id);
 
-  $shoumi_form = $request->all();
-  unset($shoumi_form['_token']);
+   $shoumi_form = $request->all();
+   unset($shoumi_form['_token']);
 
-  $shoumi->fill($shoumi_form)->save();
+   $shoumi->fill($shoumi_form)->save();
 
-  return view ('shoumi/create');
-}
+   return redirect('shoumi/index');
+ }
 
-public function delete(Request $request)
-{
-$shoumi = shoumi::find($request->id);
+ public function delete(Request $request)
+ {
+   $shoumi = shoumi::find($request->id);
 
-$shoumi->delete();
+   $shoumi->delete();
 
-return view('shoumi/create');
-}
+   return redirect('shoumi/index');
+
+ }
 
 }

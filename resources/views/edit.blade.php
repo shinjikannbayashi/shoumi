@@ -18,6 +18,7 @@
     <div class="col-md-8 mx-auto">
       <h1>編集画面</h1>
       <form action="{{ action('shoumicontroller@update') }}" method="post">
+        {{csrf_field()}}
         <p>
         <label for="username">ユーザーネーム</label>
         <input type="text" name="username" id="username" size="100" value="{{ $shoumi_form->username }}">
@@ -39,6 +40,7 @@
         <label for="day">日</lavel>
           <input type="text" name="day" id="day" size="10" value="{{ $shoumi_form->day }}">
         </p>
+        <input type="hidden" name="id" value="{{ $shoumi_form->id }}">
         <p>
           <input type="submit" value="更新">
         </p>

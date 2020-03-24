@@ -15,18 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('shoumi/add', 'shoumicontroller@add')->middleware('auth');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('shoumi/add', 'shoumicontroller@create')->middleware('auth');
+Route::get('shoumi/add', 'shoumicontroller@add')->middleware('auth');
 
-Route::post('shoumi/create','shoumicontroller@get');
+Route::post('shoumi/create', 'shoumicontroller@create')->middleware('auth');
 
-Route::get('shoumi/edit','shoumicontroller@edit');
+Route::get('shoumi/index','shoumicontroller@index')->middleware('auth');
 
-Route::post('shoumi/edit','shoumicontroller@update');
+Route::get('shoumi/edit','shoumicontroller@edit')->middleware('auth');
 
-Route::get('shoumi/delete','shoumicontroller@delete');
+Route::post('shoumi/update','shoumicontroller@update')->middleware('auth');
+
+Route::get('shoumi/delete','shoumicontroller@delete')->middleware('auth');

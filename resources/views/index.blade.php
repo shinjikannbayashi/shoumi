@@ -12,7 +12,7 @@
                 <a href="{{ action('shoumicontroller@add') }}" role="button" class="btn btn-primary">新規作成</a>
               </div>
               <div class="col-md-8">
-                <form action="{{ action('shoumicontroller@get') }}" method="post">
+                <form action="{{ action('shoumicontroller@index') }}" method="post">
                   <div class="form-group row">
                     <label class="col-md-2" for="name">商品名</label>
                       <div class="col-md-8">
@@ -37,6 +37,7 @@
                             <th width="10%">年</th>
                             <th width="10%">月</th>
                             <th width="10%">日</th>
+                            <th width="20%">差分</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -47,6 +48,11 @@
                                     <td>{{ str_limit($shoumi->year, 100) }}</td>
                                     <td>{{ str_limit($shoumi->month, 100) }}</td>
                                     <td>{{ str_limit($shoumi->day, 100) }}</td>
+                                    @if($shoumi->year."-".$shoumi->month."-".$shoumi->day == $date)
+                                    <td>1週間前です。</td>
+                                    @else
+                                    <td></td>
+                                    @endif
                                     <td>
                                       <div>
                                         <a href="{{ action('shoumicontroller@edit',['id' => $shoumi->id]) }}">編集</a>
