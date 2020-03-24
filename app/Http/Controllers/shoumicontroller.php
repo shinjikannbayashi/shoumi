@@ -32,9 +32,9 @@ class shoumicontroller extends Controller
 
     $input = shoumi::all();
 
-    $date = \date('Y-n-j',strtotime('1 week'));
+    $date = \date('Y-n-j',strtotime('+1 week'));
 
-    return view('index', ['input'=> $input ,'date' => $date]);
+    return view('index', ['input'=> $input , 'date'=>$date ]);
   }
 
   public function index(Request $request)
@@ -45,7 +45,10 @@ class shoumicontroller extends Controller
     }else{
       $input = shoumi::all();
     }
-    return view ('index', ['input' => $input, 'cond_shouhin' => $cond_shouhin]);
+
+    $date = \date('Y-n-j',strtotime('+1 week'));
+
+    return view ('index', ['input' => $input, 'cond_shouhin' => $cond_shouhin, 'date'=>$date]);
   }
 
   public function edit(Request $request)
