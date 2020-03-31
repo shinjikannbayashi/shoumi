@@ -25,6 +25,8 @@ Route::post('shoumi/create', 'shoumicontroller@create')->middleware('auth');
 
 Route::get('shoumi/index','shoumicontroller@index')->middleware('auth');
 
+Route::post('shoumi/index','shoumicontroller@index')->middleware('auth');
+
 Route::get('shoumi/edit','shoumicontroller@edit')->middleware('auth');
 
 Route::post('shoumi/update','shoumicontroller@update')->middleware('auth');

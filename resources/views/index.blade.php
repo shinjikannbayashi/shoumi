@@ -37,31 +37,44 @@
                             <th width="10%">年</th>
                             <th width="10%">月</th>
                             <th width="10%">日</th>
-                            <th width="20%">差分</th>
                           </tr>
                         </thead>
                         <tbody>
                           @foreach($input as $shoumi)
-                                <tr>
-                                    <th>{{ $shoumi->username }}</th>
-                                    <td>{{ str_limit($shoumi->shouhin, 100) }}</td>
-                                    <td>{{ str_limit($shoumi->year, 100) }}</td>
-                                    <td>{{ str_limit($shoumi->month, 100) }}</td>
-                                    <td>{{ str_limit($shoumi->day, 100) }}</td>
-                                    @if($shoumi->year."-".$shoumi->month."-".$shoumi->day == $date)
-                                    <td>1週間前です。</td>
-                                    @else
-                                    <td></td>
-                                    @endif
-                                    <td>
-                                      <div>
-                                        <a href="{{ action('shoumicontroller@edit',['id' => $shoumi->id]) }}">編集</a>
-                                      </div>
-                                      <div>
-                                        <a href="{{ action('shoumicontroller@delete', ['id' => $shoumi->id])}}">削除</a>
-                                      </div>
-                                    </td>
-                                </tr>
+                          @if($shoumi->year."-".$shoumi->month."-".$shoumi->day <= $date && $shoumi->year."-".$shoumi->month."-".$shoumi->day >= $date2)
+                                <tr class="red">
+                                <th>{{ $shoumi->username }}</th>
+                                <td>{{ str_limit($shoumi->shouhin, 100) }}</td>
+                                <td>{{ str_limit($shoumi->year, 100) }}</td>
+                                <td>{{ str_limit($shoumi->month, 100) }}</td>
+                                <td>{{ str_limit($shoumi->day, 100) }}</td>
+                                <td>
+                                  <div>
+                                    <a href="{{ action('shoumicontroller@edit',['id' => $shoumi->id]) }}">編集</a>
+                                  </div>
+                                  <div>
+                                    <a href="{{ action('shoumicontroller@delete', ['id' => $shoumi->id])}}">削除</a>
+                                  </div>
+                                </td>
+                                <td>賞味期限間近です。</td>
+                            </tr>
+                            @else
+                                  <tr>
+                                  <th>{{ $shoumi->username }}</th>
+                                  <td>{{ str_limit($shoumi->shouhin, 100) }}</td>
+                                  <td>{{ str_limit($shoumi->year, 100) }}</td>
+                                  <td>{{ str_limit($shoumi->month, 100) }}</td>
+                                  <td>{{ str_limit($shoumi->day, 100) }}</td>
+                                  <td>
+                                    <div>
+                                      <a href="{{ action('shoumicontroller@edit',['id' => $shoumi->id]) }}">編集</a>
+                                    </div>
+                                    <div>
+                                      <a href="{{ action('shoumicontroller@delete', ['id' => $shoumi->id])}}">削除</a>
+                                    </div>
+                                  </td>
+                              </tr>
+                              @endif
                             @endforeach
                         </tbody>
                     </table>
