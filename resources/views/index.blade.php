@@ -41,9 +41,9 @@
                         </thead>
                         <tbody>
                           @foreach($input as $shoumi)
-                          @if($shoumi->year."-".$shoumi->month."-".$shoumi->day <= $date && $shoumi->year."-".$shoumi->month."-".$shoumi->day >= $date2)
+                          @if($shoumi->year."-".$shoumi->month."-".$shoumi->day >= $date2 && $shoumi->year."-".$shoumi->month."-".$shoumi->day <= $date)
                                 <tr class="red">
-                                <th>{{ $shoumi->username }}</th>
+                                <td>{{ $shoumi->username }}</td>
                                 <td>{{ str_limit($shoumi->shouhin, 100) }}</td>
                                 <td>{{ str_limit($shoumi->year, 100) }}</td>
                                 <td>{{ str_limit($shoumi->month, 100) }}</td>
@@ -57,10 +57,10 @@
                                   </div>
                                 </td>
                                 <td>賞味期限間近です。</td>
-                            </tr>
-                            @else
+                              </tr>
+                                @else
                                   <tr>
-                                  <th>{{ $shoumi->username }}</th>
+                                  <td>{{ $shoumi->username }}</td>
                                   <td>{{ str_limit($shoumi->shouhin, 100) }}</td>
                                   <td>{{ str_limit($shoumi->year, 100) }}</td>
                                   <td>{{ str_limit($shoumi->month, 100) }}</td>

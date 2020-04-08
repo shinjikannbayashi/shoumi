@@ -29,18 +29,27 @@ body {
 }
 
 .login-box {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #FFCC99;
 }
 
 .login-header {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: #FFCC99;
+  border-bottom: #FFCC99;
 }
 
 .login-body {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: #FFCC99;
 }
 
 .red {
   background-color: red;
   color: #fff;
+}
+
+.table-dark td {
+  border-color: #FFCC99;
+}
+
+.table-dark thead th{
+  border-color: #FFCC99;
 }
