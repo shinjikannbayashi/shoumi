@@ -40,8 +40,9 @@
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach($input as $shoumi)
-                          @if($shoumi->year."-".$shoumi->month."-".$shoumi->day >= $date2 && $shoumi->year."-".$shoumi->month."-".$shoumi->day <= $date)
+                        @foreach($input as $shoumi)
+                        <?php $var = new DateTime($shoumi->year."-".$shoumi->month."-".$shoumi->day); ?>
+                        @if($var >= $date2 && $var <= $date)
                                 <tr class="red">
                                 <td>{{ $shoumi->username }}</td>
                                 <td>{{ str_limit($shoumi->shouhin, 100) }}</td>

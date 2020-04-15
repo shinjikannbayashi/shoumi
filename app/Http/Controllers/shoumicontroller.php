@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 use App\shoumi;
 
+use Datetime;
+
+use Dateinterval;
+
 class shoumicontroller extends Controller
 {
   public function add()
@@ -32,9 +36,9 @@ class shoumicontroller extends Controller
 
     $input = shoumi::all();
 
-    $date = \date('Y-n-j',strtotime('+1 week'));
-
-    $date2 = \date('Y-n-j');
+    $date = new \DateTime();
+    $date->add(new \DateInterval('P7D'));
+    $date2 = new \DateTime();
 
     return view('index', ['input'=> $input , 'date'=>$date, 'date2'=>$date2 ]);
   }
@@ -48,9 +52,9 @@ class shoumicontroller extends Controller
       $input = shoumi::all();
     }
 
-    $date = \date('Y-n-j',strtotime('+1 week'));
-
-    $date2 = \date('Y-n-j');
+    $date = new \Datetime();
+    $date->add(new \DateInterval('P7D'));
+    $date2 = new \Datetime();
 
     return view ('index', ['input' => $input, 'cond_shouhin' => $cond_shouhin, 'date'=>$date, 'date2'=>$date2]);
   }
